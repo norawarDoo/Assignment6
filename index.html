@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment 6 66080795 นรวัฒน์ ดูการดี</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Azeret+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <p class="student">66080795 นรวัฒน์ ดูการดี</p>
+    <div class="wallet">
+      <span id="accountInfo" class="account-info">ยังไม่ได้เชื่อมต่อ</span>
+      <button id="connectBtn" class="btn btn-primary">เชื่อมต่อ MetaMask</button>
+    </div>
+
+    <section class="statement" aria-label="ยอดเงินคงเหลือ">
+      <div class="statement-head">
+        <h1 id="balance" class="balance">0.0 ETH</h1>
+        <button id="refreshBtn" class="btn-quiet">รีเฟรชยอดเงิน</button>
+      </div>
+      <div class="statement-foot">
+        <label for="contractAddress">Contract Address (จาก Remix)</label>
+        <input type="text" id="contractAddress" placeholder="0x…" autocomplete="off" spellcheck="false" />
+      </div>
+    </section>
+
+    <div class="actions">
+      <section class="panel" aria-label="ฝากเงิน">
+        <h2 class="panel-title">ฝากเงิน</h2>
+        <div class="amount-field">
+          <input type="number" id="depositAmount" min="0" step="0.001" placeholder="0.01" aria-label="จำนวนเงินที่ต้องการฝาก (ETH)" />
+          <span class="unit">ETH</span>
+        </div>
+        <button id="depositBtn" class="btn btn-primary btn-block">ฝากเงิน</button>
+        <p class="hint">ยืนยันธุรกรรมใน MetaMask เพื่อฝากเงิน</p>
+      </section>
+
+      <section class="panel panel-withdraw" aria-label="ถอนเงิน">
+        <h2 class="panel-title">ถอนเงิน</h2>
+        <div class="amount-field">
+          <input type="number" id="withdrawAmount" min="0" step="0.001" placeholder="0.01" aria-label="จำนวนเงินที่ต้องการถอน (ETH)" />
+          <span class="unit">ETH</span>
+        </div>
+        <button id="withdrawBtn" class="btn btn-danger btn-block">ถอนเงิน</button>
+        <p class="hint">ถอนได้ไม่เกินยอดคงเหลือในสัญญา</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="statusbar" aria-live="polite">
+    <p id="status" class="status"></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
